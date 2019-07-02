@@ -29,5 +29,32 @@
 * undefined :是所有没有赋值变量的默认值，自动赋值
 * null：主动释放一个变量引用的对象，表示一个变量不在指向任何对象地址
 
+---
+
+### js数组对象的一些操作
+
+---
+
+#### reduce方法 
+
+```
+arr.reduce(callback,[initialValue])
+```
+
+定义：为数组中的每一个元素依次执行回调函数，不包括被删除或从未被赋值的元素
+
+> ```js
+> callback （执行数组中每个值的函数，包含四个参数）
+> 
+>     1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+>     2、currentValue （数组中当前被处理的元素）
+>     3、index （当前元素在数组中的索引）
+>     4、array （调用 reduce 的数组）
+> 
+> initialValue （作为第一次调用 callback 的第一个参数。）
+> ```
+
+
+
 
 
