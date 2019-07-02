@@ -29,7 +29,7 @@
 * undefined :是所有没有赋值变量的默认值，自动赋值
 * null：主动释放一个变量引用的对象，表示一个变量不在指向任何对象地址
 
----
+
 
 ### js数组对象的一些操作
 
@@ -53,7 +53,6 @@ arr.reduce(callback,[initialValue])
 > 
 > initialValue （作为第一次调用 callback 的第一个参数。）
 > ```
-
 
 
 
