@@ -31,7 +31,7 @@
 
 
 
-### js数组对象的一些操作
+### 2.js数组对象的一些操作
 
 ---
 
@@ -54,6 +54,25 @@ arr.reduce(callback,[initialValue])
 > initialValue （作为第一次调用 callback 的第一个参数。）
 > ```
 
+### 3.js中字符串的一些操作
 
+---
 
+3. substring方法 用于提取字符串中介于两个指定的下标之间的字符
+    - **substring(start,stop)**  //两个参数都是非负整数  ，最后一个参数可省略（那么返回的字符串会一直到字符串末尾）
 
+### 4.文档操作手册
+
+---
+
+> 1.   **$(selector).empty()**    empty() 方法从被选元素移除所有内容，包括文本和子节点
+> 2.   **$(selector).text()**        text() 方法设置或者返回被选元素的文本内容
+>
+
+### 5.DOM元素操作手册
+
+---
+
+> 1. **$(selector).index()**    index() 方法返回相对于其他指定元素的index位置（如果未找到 index() 返回 -1 ）
+>
+>     $(selector).index(element)  
