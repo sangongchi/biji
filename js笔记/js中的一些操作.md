@@ -75,4 +75,64 @@ arr.reduce(callback,[initialValue])
 
 > 1. **$(selector).index()**    index() 方法返回相对于其他指定元素的index位置（如果未找到 index() 返回 -1 ）
 >
->     $(selector).index(element)  
+>      $(selector).index(element)  
+
+### 6.特殊操作
+
+---
+
+#### 1. Object.assign() 方法：
+
+>**Object.assign()** 方法用于将所有可枚举属性从一个或多个源对象复制到目标对象。返回目标对象
+>
+>Object.assign(target,...sources) 
+>
+>```js
+>const target = {a:1,b:2}
+>const source = {b:4,c:5}
+>const returnTarget =Object.assign(target,source);
+>console.log(returnTarget) //Object { a: 1, b: 4, c: 5 }
+>//注意，Object.assign 不会跳过那些值为 [null] 或 [undefined]的源对象.
+>```
+>
+>如果目标对象中的属性具有相同的键，则属性将被源中的属性覆盖。后来的源的属性将类似地覆盖早先的属性。
+> `Object.assign` 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。该方法使用源对象的`[[Get]]`和目标对象的`[[Set]]`，所以它会调用相关 getter 和 setter。因此，它分配属性，而不仅仅是复制或定义新的属性。如果合并源包含getter，这可能使其不适合将新属性合并到原型中。为了将属性定义（包括其可枚举性）复制到原型，应使用[`Object.getOwnPropertyDescriptor()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)和[`Object.defineProperty()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 。
+> `String`类型和`Symbol`类型的属性都会被拷贝。
+>
+>链接：https://www.jianshu.com/p/e22113e3f614
+
+#### 2.appendChild()和insertBefore()方法（都可以进行子节点的插入动作）
+
+> 1. appendChild()方法 ：
+>
+>  定义：向节点的子节点列表的末尾添加新的子节点 （如果节点中已经有插入节点，那么这个子节点会从节点中删除，并直接插入到尾部）
+>
+> 2. insertBefore() 方法： ***node*.insertBefore(*要插入的节点对象,要插入位置对象节点*)**
+>
+>     定义向已有的子节点前插入一个新的子节点。
+>
+>     ```js
+>     <!DOCTYPE html>
+>     <html>
+>     <head>
+>     <meta charset="utf-8">
+>     </head>
+>     <body>
+>     
+>     <ul id="myList"><li>Coffee</li><li>Tea</li><li>Water</li><li>Milk</li></ul>
+>     
+>     <p id="demo">单击该按钮改变列表项的顺序</p>
+>     <button onclick="myFunction()">点我</button>
+>     <script>
+>     function myFunction(){
+>     	var list=document.getElementById("myList");
+>     	var node=list.getElementsByTagName("li");
+>     	list.insertBefore(node[3],node[1]);
+>     }
+>     </script>
+>     
+>     </body>
+>     </html>
+>     ```
+>
+>     
