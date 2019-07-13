@@ -105,34 +105,73 @@ arr.reduce(callback,[initialValue])
 
 > 1. appendChild()方法 ：
 >
->  定义：向节点的子节点列表的末尾添加新的子节点 （如果节点中已经有插入节点，那么这个子节点会从节点中删除，并直接插入到尾部）
+> 定义：向节点的子节点列表的末尾添加新的子节点 （如果节点中已经有插入节点，那么这个子节点会从节点中删除，并直接插入到尾部）
 >
 > 2. insertBefore() 方法： ***node*.insertBefore(*要插入的节点对象,要插入位置对象节点*)**
 >
->     定义向已有的子节点前插入一个新的子节点。
+>  定义向已有的子节点前插入一个新的子节点。
 >
->     ```js
->     <!DOCTYPE html>
->     <html>
->     <head>
->     <meta charset="utf-8">
->     </head>
->     <body>
->     
->     <ul id="myList"><li>Coffee</li><li>Tea</li><li>Water</li><li>Milk</li></ul>
->     
->     <p id="demo">单击该按钮改变列表项的顺序</p>
->     <button onclick="myFunction()">点我</button>
->     <script>
->     function myFunction(){
->     	var list=document.getElementById("myList");
->     	var node=list.getElementsByTagName("li");
->     	list.insertBefore(node[3],node[1]);
->     }
->     </script>
->     
->     </body>
->     </html>
->     ```
+>  ```js
+>  <!DOCTYPE html>
+>  <html>
+>  <head>
+>  <meta charset="utf-8">
+>  </head>
+>  <body>
+>  
+>  <ul id="myList"><li>Coffee</li><li>Tea</li><li>Water</li><li>Milk</li></ul>
+>  
+>  <p id="demo">单击该按钮改变列表项的顺序</p>
+>  <button onclick="myFunction()">点我</button>
+>  <script>
+>  function myFunction(){
+>  	var list=document.getElementById("myList");
+>  	var node=list.getElementsByTagName("li");
+>  	list.insertBefore(node[3],node[1]);
+>  }
+>  </script>
+>  
+>  </body>
+>  </html>
+>  ```
 >
->     
+
+### 7.for...in 和 for 和 for ...of
+
+---
+
+> 1. `for...in`循环出的是key，`for...of`循环出的是value
+>
+> 2. for...in   **遍历对象** 
+>
+>     - 用来遍历数组的下标类型为string
+>
+>     - 缺陷：
+>         - 索引是字符串型的数字，因而不能直接进行几何运算
+>         - 遍历顺序可能不是实际的内部顺序
+>         - **for in会遍历数组所有的可枚举属性，包括原型。例如的原型方法method和name属性**
+>
+> 3. for...of **遍历数组**
+>
+>     - for...of 遍历的数组的元素值
+>         - for..of适用遍历数/数组对象/字符串/map/set等拥有迭代器对象的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句
+>
+> >如果是想用 for...of遍历普通对象的属性，可以通过和Object.key()搭配使用，先获取对象的所有key的数组
+> >
+> >```javascript
+> >var student={
+> >    name:'wujunchuan',
+> >    age:22,
+> >    locate:{
+> >    country:'china',
+> >    city:'xiamen',
+> >    school:'XMUT'
+> >    }
+> >}
+> >for(var key of Object.keys(student)){
+> >    //使用Object.keys()方法获取对象key的数组
+> >    console.log(key+": "+student[key]);
+> >}
+> >```
+>
+> 4. for

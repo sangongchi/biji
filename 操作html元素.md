@@ -1,3 +1,55 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 1.js操作元素
 
 ---
@@ -82,7 +134,21 @@ getElementsByClassName: 该方法返回所有**指定类名的集合**
 
 ---
 
->1. 创建元素
+>1. jquery删除元素
+>
+>    - remove() - 删除被选元素（及其子元素）
+>
+>    - empty() - 从被选元素中删除子元素
+>
+>        - $("#div1").remove();
+>
+>        - $('#div').empty();
+>
+>        - 下面的例子删除 class="italic" 的所有 <p> 元素：
+>
+>              $("p").remove(".italic");
+>
+>2. 创建元素
 >
 >`$(function(){`
 >
@@ -94,7 +160,7 @@ getElementsByClassName: 该方法返回所有**指定类名的集合**
 >
 >```javascript
 >$(function(){
->   var $h1=$("<h1>文本内容</h1>")
+>var $h1=$("<h1>文本内容</h1>")
 >})
 >```
 >
@@ -105,61 +171,61 @@ getElementsByClassName: 该方法返回所有**指定类名的集合**
 >​	``var $h1=​$('<h1 class="red" title="biaoti">wenben</h1>')`
 >
 >`})`
->
+
 >4. 使用jquery插入元素
 >
 >在节点内部插入内容
 >
->   - append()方法  在被选元素的结尾（仍在内部）插入指定内容
+>- append()方法  在被选元素的结尾（仍在内部）插入指定内容
 >
->       - $(selector).append(content)
+> - $(selector).append(content)
 >
->       - $(selector).append(function(index,html))   
+> - $(selector).append(function(index,html))   
 >
->         index - 可选。接受选择器的 index 位置。
+>index - 可选。接受选择器的 index 位置。
 >
->         html - 可选。接受选择器的当前 HTML。
+>html - 可选。接受选择器的当前 HTML。
 >
->       - ```javascript
->         $(document).ready(function(){
->         $("button").click(function(){
->           $("p").append(function(n){
->             return "<b>This p element has index " + n + "</b>";
->           });
->         });
->         });
->         ```
->       ```
->       
->       - **$(content).appendto(selector)**
->       
->       **append()和appendto()  方法执行结果一样，但内容和选择器的书写位置不一样**
->       ```
+>- 
 >
->   - prepend()方法在被选元素的开头仍在内部  插入指定的内容
+>```jsvascript
+>$(document).ready(function(){
+>$("button").click(function(){
+>$("p").append(function(n){
+>return "<b>This p element has index " + n + "</b>";
+>});
+>});
+>});
+>```
+>- **$(content).appendto(selector)**
 >
->       - prepend() prependto
->       - $(selector).prepend(content)
->       - $(selectot).prepend(function(index,html))   //function()中的参数可选
->       -  $(content).prepend(selector)
+>**append()和appendto()  方法执行结果一样，但内容和选择器的书写位置不一样**
 >
->   - **after() 方法在被选元素后插入指定的内容**
 >
->   - **before() 方法在被选元素前插入指定的内容**
+>- prepend()方法在被选元素的开头仍在内部  插入指定的内容
 >
->     语法：$(selector).before(content)
+>   - prepend() prependto
+>   - $(selector).prepend(content)
+>   - $(selectot).prepend(function(index,html))   //function()中的参数可选
+>   -  $(content).prepend(selector)
 >
->   - **insertAfter()把匹配的元素插入到另一个指定的元素集合的后面** 选择器外部
+>- **after() 方法在被选元素后插入指定的内容**
 >
->     注释：如果该方法用于已有元素，这些元素会被从当前位置移走，然后被添加到被选元素之后。
+>- **before() 方法在被选元素前插入指定的内容**
 >
->     语法：$(content).insertAfter(selector)
+>语法：$(selector).before(content)
 >
->   - **insertBefore()把匹配的元素插入到另一个指定的元素集合的前面** 选择器外部
+>- **insertAfter()把匹配的元素插入到另一个指定的元素集合的后面** 选择器外部
 >
->      注释：如果该方法用于已有元素，这些元素会被从当前位置移走，然后被添加到被选元素之前。
+>注释：如果该方法用于已有元素，这些元素会被从当前位置移走，然后被添加到被选元素之后。
 >
->   ​        语法：$(content).insertBefore(selector)
+>语法：$(content).insertAfter(selector)
+>
+>- **insertBefore()把匹配的元素插入到另一个指定的元素集合的前面** 选择器外部
+>
+>注释：如果该方法用于已有元素，这些元素会被从当前位置移走，然后被添加到被选元素之前。
+>
+>​        语法：$(content).insertBefore(selector)
 >
 >[参考地址](https://blog.csdn.net/qq_27626333/article/details/51927022) 
 
@@ -179,4 +245,78 @@ getElementsByClassName: 该方法返回所有**指定类名的集合**
 > var att=document.createAttribute("class");  
 > att.value="democlass"; //设置属性值
 > document.getElementsByTagName("H1")[0].setAttributeNode(att);  //将设置的属性添加到对应的元素上
+> ```
+
+### 4. html表格和列表
+
+---
+
+> 1. 表格： 
+>
+>   - ```
+>      水平表头
+>      ```
+>  ```
+> 
+>  ```
+> <table>
+> 	<tr> // 定义行
+>  	<th></th>  //定义表头
+>  	<th></th> 
+>  </tr>
+>   <tr>
+>   	<td></td>  //表格内容
+>   	<td></td>
+>   </tr>  
+> </table>
+> ```
+> 
+>   - ```
+>    垂直表头
+> ```
+> ```
+> <table>
+> 	<tr> // 定义行
+>    	<th></th>  //定义表头
+>    	<td></td> 
+>    </tr>
+>     <tr>
+>     	<th></th> 
+>     	<td></td>
+>     </tr>  
+> </table>
+> ```
+>
+> 2. 列表
+>
+>     - 无序列表 `<ul>`
+>
+> ​			`<li></li>`
+>
+> ​			`<li></li>`
+>
+> ​		`<ul>`
+>
+>     - 有序列表
+>
+> `<ol>`
+>
+> `		<li></li>`
+>
+> `	<li></li>`
+>
+> `<ol>`
+>
+>     - 自定义列表
+>      
+>         - `<dl>`
+>
+> `<dt></dt>`
+>
+> `	<dd></dd>`
+>
+>         - `</dl>`
+>
+> ```
+> 
 > ```
