@@ -128,7 +128,7 @@
 - js对象中有两种描述符： 数据描述符和存取描述符
 - 注意事项：
     - 1. 数据描述符合存储描述符都具备configurable（控制是否可以删除） 、enumerable（控制是否可以枚举） 属性
-    - 2. 描述符不具备value、writetable、set和get任意一个关键字都被视作一个数据描述符
+    - 2. 描述符不具备value、writetable、set和get任意一个关键字都被视作一个数据描述符  ??????
         3. （value或writable）和（get和set）不能同时存在，然后只要定义了set和get或其中一个都是存取描述符![img](https://img2018.cnblogs.com/blog/746178/201811/746178-20181125151939264-1945621286.png)
 
     - > 1. 可写入性：writeable
