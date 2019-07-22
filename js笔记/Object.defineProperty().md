@@ -41,41 +41,47 @@
 
 > 1. **Object.getOwnPropertyNames(obj)**
 >
->     - 返回一个数组，该数组对元素是obj自身拥有的枚举或不可枚举属性名称的字符串。数组中的不可枚举属性的顺序未定义
+>    - 返回一个数组，该数组对元素是obj自身拥有的枚举或不可枚举属性名称的字符串。数组中的不可枚举属性的顺序未定义
 >
->     - ```javascript
->         var obj={0:'a',1:'b',2:'c'}
->         var pro= Object.getOwnPropertyNames(obj)
->         console.log(pro)
->         pro.forEach(function(val,index,arry){      //val 属性  index  当前属性的索引值   arry  该对象
->         	console.log(`${index}:${val}==>${obj[val]}----${arry}`)
->         })
->         ```
->
+>    - ```javascript
+>      var obj={0:'a',1:'b',2:'c'}
+>       var pro= Object.getOwnPropertyNames(obj)
+>       console.log(pro)
+>       pro.forEach(function(val,index,arry){      //val 属性  index  当前属性的索引值   arry  该对象
+>       	console.log(`${index}:${val}==>${obj[val]}----${arry}`)
+>       })
+>      ```
+>    ```
+>    
+>    ```
 > 2. **Object.getOwnPropertyDescriptor(obj,prop)**     （obj->要查找的目标对象  prop  目标对象内置属性名称）
 >
->     - 该方法返回指定对象上一个自有属性对应的属性描述符。（自由属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性）
+>    - 该方法返回指定对象上一个自有属性对应的属性描述符。（自由属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性）
 >
->     - ```javascript
->         o={bar:42}
->         Object.defineProperty(o,'baz',{
->         	value:8654202,
->         	writable:false,
->         	enumerable:false
->         })
->         d=Object.getOwnPropertyDescriptor(o,'baz')
->         d2=Object.getOwnPropertyDescriptor(o,'bar')
->         console.log(d)
->         console.log('------')
->         console.log(d2)
->         ```
->
+>    - ```javascript
+>      o={bar:42}
+>       Object.defineProperty(o,'baz',{
+>       	value:8654202,
+>       	writable:false,
+>       	enumerable:false
+>       })
+>       d=Object.getOwnPropertyDescriptor(o,'baz')
+>       d2=Object.getOwnPropertyDescriptor(o,'bar')
+>       console.log(d)
+>       console.log('------')
+>       console.log(d2)
+>      ```
+>    ```
+>    
+>    ```
+
+>     
 >     - **Object.getOwnPropertyDescriptors(obj)**
->
+>     
 >         - 所指定对象的所有自身属性的描述符，如果没有任何自身属性，则返回空对象。
->
+>     
 >         - ```javascript
->             o={bar:42}
+>            o={bar:42}
 >             Object.defineProperty(o,'baz',{
 >             	value:8654202,
 >             	writable:false,
@@ -83,21 +89,18 @@
 >             })
 >             d=Object.getOwnPropertyDescriptors(o)
 >             console.log(d)
->             ----
->             /*{ bar:
->                { value: 42,
->                  writable: true,
->                  enumerable: true,
->                  configurable: true },
->               baz:
->                { value: 8654202,
->                  writable: false,
->                  enumerable: false,
->                  configurable: false } }*/
->             
->             ```
->
->         - 
+>            ```
+>         ----
+>          /*{ bar:
+>             { value: 42,
+>               writable: true,
+>               enumerable: true,
+>               configurable: true },
+>            baz:
+>             { value: 8654202,
+>               writable: false,
+>               enumerable: false,
+>               configurable: false } }*
 
 
 
