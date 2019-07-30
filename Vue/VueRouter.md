@@ -40,9 +40,6 @@
       >      // 在浏览器记录中前进一步，等同于 history.forward()
       >      router.go(1)
       >      ```
-      >   ```
-      > 
-      >   ```
 
       >    // 后退一步记录，等同于 history.back()
       >    router.go(-1)
@@ -235,20 +232,20 @@ router.push({ path: 'register', query: { plan: 'private' }})
 >
 >             - 可以在router-view 上加一个唯一的key保证路由切换的时，都会重新渲染触发钩子。
 >
->                 - ```js
->                    <router-view :key="key">  </router-view>  computed: {     
->                     	key() 
->                     {         
->                          return this.$route.name !== undefined? this.$route.name + +new Date(): this.$route + +new Date()     
->                        
->                    ```
->
->                  }  
+>               - ```js
+>                 <router-view :key="key">  </router-view>  computed: {     
+>                 key() 
+>                 {         
+>                 return this.$route.name !== undefined? this.$route.name + +new Date(): this.$route + +new Date() 
+>                 }
 >                  }
->                  ```
->                 
->                  
->                  ```
+>                 ```
+>               ```
+>               
+>               ```
+>
+>
+> ​        
 
 
 
