@@ -74,9 +74,28 @@
             </script>
         ```
 
-    - 作用于插槽
+    - **默认插槽**的话直接在子组件的标签内写入内容即可
 
-        - 待完善
+    - **具名插槽**是在默认插槽的基础上加上`slot`属性，值为子组件插槽`name`属性值
+
+    - **作用域插槽**则是通过`slot-scope`获取子组件的信息，在内容中使用。这里可以用解构语法去直接获取想要的属性
+
+    - 作用域插槽
+       <!-- 作用域插槽 -->
+
+       ```js
+        ！
+        <div slot="footer" slot-scope="slotProps">
+        {{slotProps.testProps}}
+        </div>
+       
+        <!--作用域插槽-->
+          <template #footer="slotProps">
+            <div>
+             {{slotProps.testProps}}
+            </div>
+          </template>
+       ```
 
 ### 3. vue store 和$store
 
