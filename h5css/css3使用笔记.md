@@ -37,7 +37,24 @@
 >​			样色	图片	位置		是否重复   定位区域 边框绘制区域 是否固定	
 >
 >**1. background-clip: border-box|padding-box|content-box**
+
+### 4. input相关
+
+---
+
+> - lable  相关
 >
+>     - 显示绑定  使用for属性
+>         - `<lable for="对应的id值"></lable>`
+>         - `<input type="text" id="value"/>`
+>         - for属性将对应的id输入框产生关联，点击对应lable 光标到对应的输入框
 >
+>     - 隐式绑定  
 >
+>         - ```html
+>             <lable>  
+>             	<input type="text" id="value"/>`
+>             </lable>
+>             ```
 >
+>             

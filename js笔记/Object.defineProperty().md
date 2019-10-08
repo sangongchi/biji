@@ -51,6 +51,9 @@
 >      console.log(`${index}:${val}==>${obj[val]}----${arry}`)
 >      })
 >      ```
+>   ```
+> 
+>   ```
 
 > 2. **Object.getOwnPropertyDescriptor(obj,prop)**     （obj->要查找的目标对象  prop  目标对象内置属性名称）
 >
@@ -69,6 +72,9 @@
 >      console.log('------')
 >      console.log(d2)
 >      ```
+>   ```
+> 
+>   ```
 
 >     
 >     - **Object.getOwnPropertyDescriptors(obj)**
@@ -96,12 +102,6 @@
 >               writable: false,
 >               enumerable: false,
 >               configurable: false } }*
-
-
-
-
-
-
 
 ### 4. Object.getPropertyOf()
 
