@@ -6,21 +6,16 @@
 >   yum -y install gcc gcc-c++ autoconf pcre-devel make automake
 >   yum -y install wget httpd-tools vim
 >   ```
-> ```
-> 
-> ```
 
-> 
->
+
+
 > 2. ``` yum list | grep nginx```
 >
 > 上述语句查询域名源是否存在nginx
 >
 > 3. 没有的话可以自行配置 yum源
+> > vim /etc/yum.repos.d/nginx.repo
 >
->     - > ```bash
->         > vim /etc/yum.repos.d/nginx.repo
->         > ```
 >   >[nginx]
 >   >name=nginx repo
 >   >baseurl=http://nginx.org/packages/centos/7/$basearch/
@@ -28,7 +23,8 @@
 >   >enabled=1
 >   >//上述的centos/7  表示操作系统以及版本号
 >
-> 4. > 1. yum install nginx
+> > yum install nginx
+>
 >  >
 >  >2. nginx -v  //查询版本
 >  >
@@ -64,17 +60,17 @@
 
 
 ​      
-> access_log  /var/log/nginx/access.log  main;   #nginx访问日志存放位置
+> ​	access_log  /var/log/nginx/access.log  main;   #nginx访问日志存放位置
 >
-> sendfile        on;   #开启高效传输模式
-> #tcp_nopush     on;    #减少网络报文段的数量
+> ​	sendfile        on;   #开启高效传输模式
+> ​	#tcp_nopush     on;    #减少网络报文段的数量
 >
-> keepalive_timeout  65;  #保持连接的时间，也叫超时时间
+> ​	keepalive_timeout  65;  #保持连接的时间，也叫超时时间
 >
-> #gzip  on;  #开启gzip压缩
+> ​	#gzip  on;  #开启gzip压缩
 >
-> include /etc/nginx/conf.d/*.conf; #包含的子配置项位置和文件
-> ```
+> ​	include /etc/nginx/conf.d/*.conf; #包含的子配置项位置和文件
+> ```bash
 > 
 > vim default.conf
 > 
