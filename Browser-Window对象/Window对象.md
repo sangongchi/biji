@@ -88,8 +88,4 @@
 >
 >  // 从 sessionStorage 删除所有保存的数据
 >  sessionStorage.clear();
->  ```
-> 
->   
->  ```
 

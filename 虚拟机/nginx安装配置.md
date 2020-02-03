@@ -2,10 +2,12 @@
 
 ---
 
-> 1. ```bash
->   yum -y install gcc gcc-c++ autoconf pcre-devel make automake
->   yum -y install wget httpd-tools vim
->   ```
+
+
+> ```bash
+> yum -y install gcc gcc-c++ autoconf pcre-devel make automake
+> yum -y install wget httpd-tools vim
+> ```
 
 
 
@@ -14,8 +16,8 @@
 > 上述语句查询域名源是否存在nginx
 >
 > 3. 没有的话可以自行配置 yum源
-> > vim /etc/yum.repos.d/nginx.repo
 >
+>     ```vim /etc/yum.repos.d/nginx.repo```
 >   >[nginx]
 >   >name=nginx repo
 >   >baseurl=http://nginx.org/packages/centos/7/$basearch/
@@ -29,9 +31,9 @@
 >  >2. nginx -v  //查询版本
 >  >
 >  >3. ```text
->  >  rpm -ql nginx    //可以用来查询nginx 的安装目录
->  >  // rpm 是linux 的包管理器，-q 表示你询问模式 -l 代表返回列表
->  >  ```
+>  > rpm -ql nginx    //可以用来查询nginx 的安装目录
+>  > // rpm 是linux 的包管理器，-q 表示你询问模式 -l 代表返回列表
+>  > ```
 >
 > 5. cd /etc/nginx
 >
@@ -56,7 +58,7 @@
 >
 > log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 > '$status $body_bytes_sent "$http_referer" ''
-> "​$http_user_agent" "$http_x_forwarded_for"';
+> "$http_user_agent" "$http_x_forwarded_for"';
 
 
 ​      
