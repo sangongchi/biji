@@ -2,8 +2,125 @@
 
 > 产品树需求文档 ：<https://wiki.zhiyinlou.com/pages/viewpage.action?pageId=35263941>
 > 产品树项目wiki地址：
+>
+>  教师查询与维护部分 https://wiki.zhiyinlou.com/pages/viewpage.action?pageId=28755742
+>
 > wiki目录：<https://wiki.zhiyinlou.com/pages/viewpage.action?pageId=35263937>
 > 复盘反思wiki：<https://wiki.zhiyinlou.com/pages/viewpage.action?pageId=35263960>
 > 排期计划：<https://wiki.zhiyinlou.com/pages/viewpage.action?pageId=39294182>
 > 立项单：<https://wiki.zhiyinlou.com/pages/viewpage.action?pageId=35263958>
 
+> 产品数bug修复
+>
+> - http://local-iedu.izhikang.com/#/rule/list/productrulesettings    查询结果授课形式筛选项好像不起作用
+>     - http://local-iedu.izhikang.com/educational/product/queryByConditions
+> - http://local-iedu.izhikang.com/educational/product/add   //提交后接口异常 应该还是teachmode的问题
+
+>
+>
+>```vue
+>//获取授课类型数据
+> api.apiMethod.query_meta.get({
+>   "properties": 'term,grade,subject,year,category,teachMode',
+> }).done((res) => {
+>   if (res.ret) {
+>     this.basicInfo.teachModeArr = [{"code": "", "name": "不限"}].concat(res.data.teachMode);
+>   } else {
+>     this.$Message.error({content: res.msg, duration: 10});
+>   }
+> });
+>
+>//获取联机菜单数据
+>	api.apiMethod.categories_by_city.get({includeChild:1,id:0}).done((res)=>{
+>		this.basicInfo.typeData =  this.merge12(this.reptile(res.data));//联动
+>	});
+>
+>reptile (obj) {//修改数据格式为联动数据格式
+> if (obj && obj.children && obj.children.length > 0) {
+>   let arr = [];
+>
+>   obj.children.forEach((item) => {
+>     let itemObj = {};
+>
+>     itemObj.label = item.name;
+>     itemObj.value = item.id;
+>
+>     if (item.children && item.children.length > 0) {
+>       itemObj.children = this.genChild(item.children);
+>     }
+>
+>     arr.push(itemObj);
+>   });
+>   return arr;
+> } else {
+>   return [];
+> }
+>},
+>
+>genChild(children) {
+> let arr = [];
+> children.forEach((item) => {
+>   let itemObj = {};
+>   itemObj.label = item.name;
+>   itemObj.value = item.id;ue = item.id;
+>   itemObj.value = item.id;ue = item.id;
+>   if (item.children && item.children.length > 0) {
+>     itemObj.children = this.genChild(item.children);
+>   }
+>   arr.push(itemObj);
+> });
+>
+> return arr;
+>},
+>
+>//合并一二级联机菜单
+>merge12(arr){
+>   var result=[];
+>   arr.map(item=>{
+>       if(item.children&&item.children.length>0){
+>           var outLabel=item.label;
+>           item.children.map(it=>{
+>               it.label=outLabel+" / "+it.label
+>               result.push(it)
+>           })
+>       }
+>   })
+>   return result;
+>},
+>```
+
+> 1. 教务管理课程规划  
+>
+>     - http://local-iedu.izhikang.com/#/student/newsign     可用学员： 王博阳
+>-  教务管理  班主任分配-产品线配置-新增产品树-产品树类型  对应的页面   productLineConfig.vue
+>     - 教务管理 我的学员-详情 - 排课申请 -发起排课申请-申请详情-筛选项：产品类型    下拉无数据问题待解决   
+>     - 下图部分页面 未找到 没有更改
+>     - ![image-20200203192153465](H:\biji\typora_imgs\image-20200203192153465.png)
+
+
+
+>- | 教师查询与维护-教师信息列表项-修改-任教信息：班级类型 |
+>    | ----------------------------------------------------- |
+>    |                                                       |
+
+>-   授课形式名称未更改  /educational/condition/query
+>
+>    
+>
+>- | 教务管理 | 新签设置-配置-筛选项：班级类型（无url访问权限）       | /educational/condition/query |
+>    | -------- | ----------------------------------------------------- | ---------------------------- |
+>    | 财务管理 | 教师课时查询-分校课时查询-筛选项                      | /finance/inquiry             |
+>    | 财务管理 | 教师课时查询-非本分校课时数据查询                     |                              |
+>    | 教师管理 | 教师查询与维护-教师信息列表项-修改-任教信息：班级类型 | /teacher/teacherpagehome     |
+
+> 2020 2-19最新问题
+>
+> - 课程管理-产品管理-新建产品 部分需要跟后台核对（授课形式）参数问题 
+>
+>     http://local-iedu.izhikang.com/educational/product/add  需要跟文静沟通
+>
+> - 教务管理-课程规划-选择产品 -产品类型顺序问题  （代码之前做了优化）
+>   
+>     - 源代码  在  enroll - CourseQuery  文件
+
+> 产品树
